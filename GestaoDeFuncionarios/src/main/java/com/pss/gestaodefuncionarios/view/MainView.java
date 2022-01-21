@@ -28,8 +28,9 @@ public class MainView extends javax.swing.JFrame {
 
         desktop = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        mnuFuncionario = new javax.swing.JMenu();
+        mnuSalario = new javax.swing.JMenu();
+        mnuFerramentas = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -38,18 +39,21 @@ public class MainView extends javax.swing.JFrame {
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGap(0, 996, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 572, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        mnuFuncionario.setText("Funcionário");
+        jMenuBar1.add(mnuFuncionario);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        mnuSalario.setText("Salário");
+        jMenuBar1.add(mnuSalario);
+
+        mnuFerramentas.setText("Ferramentas");
+        jMenuBar1.add(mnuFerramentas);
 
         setJMenuBar(jMenuBar1);
 
@@ -61,7 +65,9 @@ public class MainView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,8 +110,9 @@ public class MainView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu mnuFerramentas;
+    private javax.swing.JMenu mnuFuncionario;
+    private javax.swing.JMenu mnuSalario;
     // End of variables declaration//GEN-END:variables
 }
