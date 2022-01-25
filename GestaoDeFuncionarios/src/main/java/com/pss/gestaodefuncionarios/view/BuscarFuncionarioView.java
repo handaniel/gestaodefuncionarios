@@ -4,6 +4,12 @@
  */
 package com.pss.gestaodefuncionarios.view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author handaniels
@@ -57,7 +63,7 @@ public class BuscarFuncionarioView extends javax.swing.JInternalFrame {
 
         btnFechar.setText("Fechar");
 
-        btnVisualizar.setText("VIsualizar");
+        btnVisualizar.setText("Visualizar");
 
         btnBonus.setText("Ver bônus");
 
@@ -108,6 +114,78 @@ public class BuscarFuncionarioView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnBonus() {
+        return btnBonus;
+    }
+
+    public void setBtnBonus(JButton btnBonus) {
+        this.btnBonus = btnBonus;
+    }
+
+    public JButton getBtnBusca() {
+        return btnBusca;
+    }
+
+    public void setBtnBusca(JButton btnBusca) {
+        this.btnBusca = btnBusca;
+    }
+
+    public JButton getBtnFechar() {
+        return btnFechar;
+    }
+
+    public void setBtnFechar(JButton btnFechar) {
+        this.btnFechar = btnFechar;
+    }
+
+    public JButton getBtnNovo() {
+        return btnNovo;
+    }
+
+    public void setBtnNovo(JButton btnNovo) {
+        this.btnNovo = btnNovo;
+    }
+
+    public JButton getBtnVisualizar() {
+        return btnVisualizar;
+    }
+
+    public void setBtnVisualizar(JButton btnVisualizar) {
+        this.btnVisualizar = btnVisualizar;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JLabel getLblNome() {
+        return lblNome;
+    }
+
+    public void setLblNome(JLabel lblNome) {
+        this.lblNome = lblNome;
+    }
+
+    public JTable getTblFuncionarios() {
+        return tblFuncionarios;
+    }
+
+    public void setTblFuncionarios(JTable tblFuncionarios) {
+        this.tblFuncionarios = tblFuncionarios;
+    }
+
+    public JTextField getTxtBusca() {
+        return txtBusca;
+    }
+
+    public void setTxtBusca(JTextField txtBusca) {
+        this.txtBusca = txtBusca;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

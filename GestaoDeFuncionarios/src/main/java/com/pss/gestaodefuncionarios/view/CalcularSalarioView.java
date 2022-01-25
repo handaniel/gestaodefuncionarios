@@ -4,16 +4,20 @@
  */
 package com.pss.gestaodefuncionarios.view;
 
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author handaniels
  */
-public class CalcularSalarioVIew extends javax.swing.JInternalFrame {
+public class CalcularSalarioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CalcularSalarioVIew
      */
-    public CalcularSalarioVIew() {
+    public CalcularSalarioView() {
         initComponents();
     }
 
@@ -27,7 +31,7 @@ public class CalcularSalarioVIew extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFuncionarios = new javax.swing.JTable();
         btnListarTodos = new javax.swing.JButton();
         btnBuscarData = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
@@ -35,7 +39,7 @@ public class CalcularSalarioVIew extends javax.swing.JInternalFrame {
 
         setTitle("Calcular Salário");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -46,7 +50,7 @@ public class CalcularSalarioVIew extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblFuncionarios);
 
         btnListarTodos.setText("Listar Todos");
 
@@ -96,6 +100,54 @@ public class CalcularSalarioVIew extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtnBuscarData() {
+        return btnBuscarData;
+    }
+
+    public void setBtnBuscarData(JButton btnBuscarData) {
+        this.btnBuscarData = btnBuscarData;
+    }
+
+    public JButton getBtnCalcular() {
+        return btnCalcular;
+    }
+
+    public void setBtnCalcular(JButton btnCalcular) {
+        this.btnCalcular = btnCalcular;
+    }
+
+    public JButton getBtnFechar() {
+        return btnFechar;
+    }
+
+    public void setBtnFechar(JButton btnFechar) {
+        this.btnFechar = btnFechar;
+    }
+
+    public JButton getBtnListarTodos() {
+        return btnListarTodos;
+    }
+
+    public void setBtnListarTodos(JButton btnListarTodos) {
+        this.btnListarTodos = btnListarTodos;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getTblFuncionarios() {
+        return tblFuncionarios;
+    }
+
+    public void setTblFuncionarios(JTable tblFuncionarios) {
+        this.tblFuncionarios = tblFuncionarios;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarData;
@@ -103,6 +155,6 @@ public class CalcularSalarioVIew extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnListarTodos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblFuncionarios;
     // End of variables declaration//GEN-END:variables
 }
