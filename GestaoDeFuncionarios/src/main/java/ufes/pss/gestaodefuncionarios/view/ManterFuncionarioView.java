@@ -59,7 +59,7 @@ public class ManterFuncionarioView extends javax.swing.JInternalFrame {
         cbxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Programador Sênior", "Programador Junior", "Gerente de Projeto",
             "Analista de sistemas", "Engenheiro de Dados", "Gerente de Segurança" }));
 
-cbxBonus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
+cbxBonus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Generoso" }));
 
 lblIdade.setText("Idade");
 

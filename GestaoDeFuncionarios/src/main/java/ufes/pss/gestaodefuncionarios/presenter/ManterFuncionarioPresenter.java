@@ -3,19 +3,14 @@ package ufes.pss.gestaodefuncionarios.presenter;
 import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import ufes.pss.gestaodefuncionarios.view.ManterFuncionarioView;
 import java.awt.event.ActionEvent;
-import javax.swing.table.DefaultTableModel;
 
 public class ManterFuncionarioPresenter {
 
     private ManterFuncionarioView view;
-    
 
     public ManterFuncionarioPresenter(PrincipalView principal) {
         view = new ManterFuncionarioView();
         principal.getDesktop().add(view);
-
-        
-        
 
         view.getBtnFechar().addActionListener((ActionEvent ae) -> {
             fechar();
@@ -46,7 +41,9 @@ public class ManterFuncionarioPresenter {
     }
 
     private void salvar() {
-        System.out.println("Falta implementar");
+        System.out.println(view.getCbxCargo().getSelectedItem());
+        System.out.println(view.getCbxBonus().getSelectedItem());
+        System.out.println(view.getCkbFuncionarioDoMes().isSelected());
     }
 
     private void excluir() {
