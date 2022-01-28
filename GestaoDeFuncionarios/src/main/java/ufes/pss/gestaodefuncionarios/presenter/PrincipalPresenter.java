@@ -3,12 +3,16 @@ package ufes.pss.gestaodefuncionarios.presenter;
 import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
 
 public class PrincipalPresenter {
 
     private static PrincipalView view;
+    private static FuncionarioCollection funcionarios;
 
     public static void main(String[] args) {
+
+        funcionarios = new FuncionarioCollection();
 
         inicializa();
 
@@ -42,7 +46,7 @@ public class PrincipalPresenter {
     }
 
     private static void addFuncionario() {
-        new ManterFuncionarioPresenter(view);
+        new ManterFuncionarioPresenter(view, funcionarios);
     }
 
     private static void buscarFuncionario() {

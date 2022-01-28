@@ -8,9 +8,8 @@ public class Bonus {
     private LocalDate data;
     private double valor;
 
-    public Bonus(String nome, LocalDate data, double valor) {
+    public Bonus(String nome, double valor) {
         this.nome = nome;
-        this.data = data;
         this.valor = valor;
     }
 

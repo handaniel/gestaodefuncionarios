@@ -34,8 +34,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblVersao = new javax.swing.JLabel();
-        lblNumVersao = new javax.swing.JLabel();
         lblNumFuncionarios = new javax.swing.JLabel();
         lblFuncionarios = new javax.swing.JLabel();
         desktop = new javax.swing.JDesktopPane();
@@ -63,10 +61,6 @@ public class PrincipalView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Gestão de Funcionários");
         setSize(new java.awt.Dimension(1600, 900));
-
-        lblVersao.setText("Ver:");
-
-        lblNumVersao.setText("0.0");
 
         lblNumFuncionarios.setText("00");
 
@@ -117,11 +111,7 @@ public class PrincipalView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblVersao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblNumVersao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 866, Short.MAX_VALUE)
+                .addContainerGap(930, Short.MAX_VALUE)
                 .addComponent(lblFuncionarios)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblNumFuncionarios)
@@ -135,13 +125,12 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumFuncionarios)
-                    .addComponent(lblFuncionarios)
-                    .addComponent(lblVersao)
-                    .addComponent(lblNumVersao))
+                    .addComponent(lblFuncionarios))
                 .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public JMenuItem getBtnInfoSistema() {
@@ -162,22 +151,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
     public void setLblNumFuncionarios(JLabel lblNumFuncionarios) {
         this.lblNumFuncionarios = lblNumFuncionarios;
-    }
-
-    public JLabel getLblNumVersao() {
-        return lblNumVersao;
-    }
-
-    public void setLblNumVersao(JLabel lblNumVersao) {
-        this.lblNumVersao = lblNumVersao;
-    }
-
-    public JLabel getLblVersao() {
-        return lblVersao;
-    }
-
-    public void setLblVersao(JLabel lblVersao) {
-        this.lblVersao = lblVersao;
     }
 
     public void setBtnInfoSistema(JMenuItem btnInfoSistema) {
@@ -267,8 +240,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFuncionarios;
     private javax.swing.JLabel lblNumFuncionarios;
-    private javax.swing.JLabel lblNumVersao;
-    private javax.swing.JLabel lblVersao;
     private javax.swing.JMenu mnuFerramentas;
     private javax.swing.JMenu mnuFuncionario;
     private javax.swing.JMenu mnuSalario;

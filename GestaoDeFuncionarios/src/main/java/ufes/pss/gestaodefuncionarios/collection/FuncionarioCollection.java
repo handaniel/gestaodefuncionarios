@@ -32,7 +32,7 @@ public class FuncionarioCollection {
                     f.setCargo(novo.getCargo());
                     f.setIdade(novo.getIdade());
                     f.setSalario(novo.getSalario());
-                    f.setBonus(novo.getBonus());
+                    f.setBonusRecebidos(novo.getBonusRecebidos());
                 }
             }
         }
