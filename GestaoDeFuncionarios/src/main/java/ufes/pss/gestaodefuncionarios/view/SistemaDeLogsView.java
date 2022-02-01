@@ -17,6 +17,8 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
      */
     public SistemaDeLogsView() {
         initComponents();
+        gpSistemaLogs.add(rbtTXT);
+        gpSistemaLogs.add(rbtXML);
     }
 
     /**
@@ -28,74 +30,45 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnXML = new javax.swing.JButton();
-        btnJSON = new javax.swing.JButton();
-        btnTXT = new javax.swing.JButton();
+        gpSistemaLogs = new javax.swing.ButtonGroup();
+        rbtXML = new javax.swing.JRadioButton();
+        rbtTXT = new javax.swing.JRadioButton();
 
         setClosable(true);
         setTitle("Escolha um Sistema de Logs");
 
-        btnXML.setText("XML");
+        rbtXML.setText("XML");
 
-        btnJSON.setText("JSON");
-
-        btnTXT.setText("TXT");
+        rbtTXT.setText("TXT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnXML)
-                .addGap(18, 18, 18)
-                .addComponent(btnTXT)
-                .addGap(18, 18, 18)
-                .addComponent(btnJSON)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(rbtXML)
+                .addGap(83, 83, 83)
+                .addComponent(rbtTXT)
+                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnXML)
-                    .addComponent(btnJSON)
-                    .addComponent(btnTXT))
-                .addGap(48, 48, 48))
+                    .addComponent(rbtXML)
+                    .addComponent(rbtTXT))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public JButton getBtnJSON() {
-        return btnJSON;
-    }
-
-    public void setBtnJSON(JButton btnJSON) {
-        this.btnJSON = btnJSON;
-    }
-
-    public JButton getBtnTXT() {
-        return btnTXT;
-    }
-
-    public void setBtnTXT(JButton btnTXT) {
-        this.btnTXT = btnTXT;
-    }
-
-    public JButton getBtnXML() {
-        return btnXML;
-    }
-
-    public void setBtnXML(JButton btnXML) {
-        this.btnXML = btnXML;
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnJSON;
-    private javax.swing.JButton btnTXT;
-    private javax.swing.JButton btnXML;
+    private javax.swing.ButtonGroup gpSistemaLogs;
+    private javax.swing.JRadioButton rbtTXT;
+    private javax.swing.JRadioButton rbtXML;
     // End of variables declaration//GEN-END:variables
 }

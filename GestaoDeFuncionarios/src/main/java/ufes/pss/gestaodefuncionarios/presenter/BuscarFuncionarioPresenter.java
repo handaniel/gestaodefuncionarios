@@ -1,18 +1,24 @@
 package ufes.pss.gestaodefuncionarios.presenter;
 
 import ufes.pss.gestaodefuncionarios.view.BuscarFuncionarioView;
-import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
+import ufes.pss.gestaodefuncionarios.model.Funcionario;
 
 public class BuscarFuncionarioPresenter {
 
     private BuscarFuncionarioView view;
     private DefaultTableModel tmFuncionarios;
+    private FuncionarioCollection funcionarios;
 
-    public BuscarFuncionarioPresenter(PrincipalView principal) {
+    public BuscarFuncionarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
+        this.funcionarios = funcionarios;
+        funcionarios.ordenar();
         view = new BuscarFuncionarioView();
-        principal.getDesktop().add(view);
+        principal.getView().getDesktop().add(view);
 
         tmFuncionarios = new DefaultTableModel(
                 new Object[][]{},
@@ -23,49 +29,99 @@ public class BuscarFuncionarioPresenter {
                 return false;
             }
         };
+
+        view.getTblFuncionarios().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
         view.getTblFuncionarios().setModel(tmFuncionarios);
 
         view.getBtnFechar().addActionListener((ActionEvent ae) -> {
-            fechar();
+            fechar(principal);
         });
 
         view.getBtnBusca().addActionListener((ActionEvent ae) -> {
-            buscar();
+            buscar(funcionarios);
         });
 
         view.getBtnNovo().addActionListener((ActionEvent ae) -> {
-            novo();
+            novo(principal, funcionarios);
         });
 
         view.getBtnBonus().addActionListener((ActionEvent ae) -> {
-            bonus();
+            if (view.getTblFuncionarios().getSelectedRow() < 0) {
+                JOptionPane.showMessageDialog(view, "Selecione uma linha");
+            } else {
+                bonus(principal, funcionarios);
+            }
         });
 
         view.getBtnVisualizar().addActionListener((ActionEvent ae) -> {
-            visualizar();
+            if (view.getTblFuncionarios().getSelectedRow() < 0) {
+                JOptionPane.showMessageDialog(view, "Selecione uma linha");
+            } else {
+                visualizar(principal, funcionarios);
+            }
         });
 
         view.setVisible(true);
     }
 
-    private void fechar() {
+    private void fechar(PrincipalPresenter pp) {
         view.dispose();
+        pp.updateNumFuncionarios();
     }
 
-    private void buscar() {
-        System.out.println("Falta implementar");
+    private void buscar(FuncionarioCollection funcionarios) {
+
+        eraseTable();
+
+        String busca = view.getTxtBusca().getText().toLowerCase();
+
+        if (busca != null && !"".equals(busca)) {
+
+            for (Funcionario f : funcionarios.getFuncionarios()) {
+                if (f.getNome().toLowerCase().contains(busca)) {
+                    tmFuncionarios.addRow(new Object[]{
+                        f.getId(),
+                        f.getNome(),
+                        f.getIdade(),
+                        f.getCargo(),
+                        String.format("%.2f", f.getSalario()).replace(".", ",")
+                    });
+                }
+            }
+        } else {
+            throw new RuntimeException("Forneça um nome para busca!");
+        }
+
+        view.getTblFuncionarios().setModel(tmFuncionarios);
     }
 
-    private void novo() {
-        System.out.println("Falta implementar");
+    private void novo(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
+        ManterFuncionarioPresenter manterFuncionarioPresenter = new ManterFuncionarioPresenter(principal, funcionarios);
+        eraseTable();
     }
 
-    private void bonus() {
-        System.out.println("Falta implementar");
+    private void bonus(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
+        int id = Integer.parseInt(view.getTblFuncionarios().getValueAt(view.getTblFuncionarios().getSelectedRow(), 0).toString());
+        Funcionario f = funcionarios.findById(id);
+
+        new VerBonusPresenter(principal, f);
+        eraseTable();
+        view.getTxtBusca().setText("");
     }
 
-    private void visualizar() {
-        System.out.println("Falta implementar");
+    private void visualizar(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
+        int id = Integer.parseInt(view.getTblFuncionarios().getValueAt(view.getTblFuncionarios().getSelectedRow(), 0).toString());
+        Funcionario f = funcionarios.findById(id);
+        new ManterFuncionarioPresenter(principal, funcionarios, f);
+        eraseTable();
+        view.getTxtBusca().setText("");
+    }
+
+    private void eraseTable() {
+        tmFuncionarios.setNumRows(0);
+        view.getTblFuncionarios().setModel(tmFuncionarios);
+
     }
 
 }

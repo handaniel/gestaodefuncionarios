@@ -37,6 +37,12 @@ public class PrincipalView extends javax.swing.JFrame {
         lblNumFuncionarios = new javax.swing.JLabel();
         lblFuncionarios = new javax.swing.JLabel();
         desktop = new javax.swing.JDesktopPane();
+        lblVersao = new javax.swing.JLabel();
+        lblNumVersao = new javax.swing.JLabel();
+        lblPersistencia = new javax.swing.JLabel();
+        lblTipoPersistencia = new javax.swing.JLabel();
+        lblLogs = new javax.swing.JLabel();
+        lblTipoLogs = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuFuncionario = new javax.swing.JMenu();
         btnAddFuncionario = new javax.swing.JMenuItem();
@@ -45,7 +51,6 @@ public class PrincipalView extends javax.swing.JFrame {
         btnCalcularSalario = new javax.swing.JMenuItem();
         mnuFerramentas = new javax.swing.JMenu();
         btnAlterarLogs = new javax.swing.JMenuItem();
-        btnInfoSistema = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,20 +67,24 @@ public class PrincipalView extends javax.swing.JFrame {
         setTitle("Sistema de Gestão de Funcionários");
         setSize(new java.awt.Dimension(1600, 900));
 
-        lblNumFuncionarios.setText("00");
-
         lblFuncionarios.setText("Funcionarios:");
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1029, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 732, Short.MAX_VALUE)
         );
+
+        lblVersao.setText("Versão:");
+
+        lblPersistencia.setText("Persistência:");
+
+        lblLogs.setText("Logs:");
 
         mnuFuncionario.setText("Funcionário");
 
@@ -99,9 +108,6 @@ public class PrincipalView extends javax.swing.JFrame {
         btnAlterarLogs.setText("Alterar Mecanismo de Logs");
         mnuFerramentas.add(btnAlterarLogs);
 
-        btnInfoSistema.setText("Informações do Sistema");
-        mnuFerramentas.add(btnInfoSistema);
-
         jMenuBar1.add(mnuFerramentas);
 
         setJMenuBar(jMenuBar1);
@@ -111,7 +117,19 @@ public class PrincipalView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(930, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lblVersao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNumVersao)
+                .addGap(18, 18, 18)
+                .addComponent(lblPersistencia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTipoPersistencia)
+                .addGap(18, 18, 18)
+                .addComponent(lblLogs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTipoLogs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblFuncionarios)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblNumFuncionarios)
@@ -125,17 +143,19 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumFuncionarios)
-                    .addComponent(lblFuncionarios))
+                    .addComponent(lblFuncionarios)
+                    .addComponent(lblVersao)
+                    .addComponent(lblNumVersao)
+                    .addComponent(lblPersistencia)
+                    .addComponent(lblTipoPersistencia)
+                    .addComponent(lblLogs)
+                    .addComponent(lblTipoLogs))
                 .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    public JMenuItem getBtnInfoSistema() {
-        return btnInfoSistema;
-    }
 
     public JLabel getLblFuncionarios() {
         return lblFuncionarios;
@@ -151,10 +171,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
     public void setLblNumFuncionarios(JLabel lblNumFuncionarios) {
         this.lblNumFuncionarios = lblNumFuncionarios;
-    }
-
-    public void setBtnInfoSistema(JMenuItem btnInfoSistema) {
-        this.btnInfoSistema = btnInfoSistema;
     }
 
     public JMenuItem getBtnAddFuncionario() {
@@ -229,17 +245,71 @@ public class PrincipalView extends javax.swing.JFrame {
         this.mnuSalario = mnuSalario;
     }
 
+    public JLabel getLblLogs() {
+        return lblLogs;
+    }
+
+    public void setLblLogs(JLabel lblLogs) {
+        this.lblLogs = lblLogs;
+    }
+
+    public JLabel getLblNumVersao() {
+        return lblNumVersao;
+    }
+
+    public void setLblNumVersao(JLabel lblNumVersao) {
+        this.lblNumVersao = lblNumVersao;
+    }
+
+    public JLabel getLblPersistencia() {
+        return lblPersistencia;
+    }
+
+    public void setLblPersistencia(JLabel lblPersistencia) {
+        this.lblPersistencia = lblPersistencia;
+    }
+
+    public JLabel getLblTipoLogs() {
+        return lblTipoLogs;
+    }
+
+    public void setLblTipoLogs(JLabel lblTipoLogs) {
+        this.lblTipoLogs = lblTipoLogs;
+    }
+
+    public JLabel getLblVersao() {
+        return lblVersao;
+    }
+
+    public void setLblVersao(JLabel lblVersao) {
+        this.lblVersao = lblVersao;
+    }
+
+    public JLabel getLblTipoPersistencia() {
+        return lblTipoPersistencia;
+    }
+
+    public void setLblTipoPersistencia(JLabel lblTipoPersistencia) {
+        this.lblTipoPersistencia = lblTipoPersistencia;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAddFuncionario;
     private javax.swing.JMenuItem btnAlterarLogs;
     private javax.swing.JMenuItem btnBuscarFuncionario;
     private javax.swing.JMenuItem btnCalcularSalario;
-    private javax.swing.JMenuItem btnInfoSistema;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFuncionarios;
+    private javax.swing.JLabel lblLogs;
     private javax.swing.JLabel lblNumFuncionarios;
+    private javax.swing.JLabel lblNumVersao;
+    private javax.swing.JLabel lblPersistencia;
+    private javax.swing.JLabel lblTipoLogs;
+    private javax.swing.JLabel lblTipoPersistencia;
+    private javax.swing.JLabel lblVersao;
     private javax.swing.JMenu mnuFerramentas;
     private javax.swing.JMenu mnuFuncionario;
     private javax.swing.JMenu mnuSalario;

@@ -2,15 +2,14 @@ package ufes.pss.gestaodefuncionarios.presenter;
 
 import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
-import javax.swing.JOptionPane;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
 
 public class PrincipalPresenter {
 
-    private static PrincipalView view;
-    private static FuncionarioCollection funcionarios;
+    private PrincipalView view;
+    private FuncionarioCollection funcionarios;
 
-    public static void main(String[] args) {
+    public PrincipalPresenter() {
 
         funcionarios = new FuncionarioCollection();
 
@@ -18,9 +17,10 @@ public class PrincipalPresenter {
 
     }
 
-    public static void inicializa() {
+    public void inicializa() {
 
         view = new PrincipalView();
+        informacoesDoSistema();
         view.setVisible(true);
 
         view.getBtnAddFuncionario().addActionListener(((ActionEvent ae) -> {
@@ -39,33 +39,42 @@ public class PrincipalPresenter {
             alterarLogs();
         });
 
-        view.getBtnInfoSistema().addActionListener((ActionEvent ae) -> {
-            informacoesDoSistema();
-        });
+    }
+
+    private void addFuncionario() {
+        ManterFuncionarioPresenter manterFuncionarioPresenter = new ManterFuncionarioPresenter(this, funcionarios);
+    }
+
+    private void buscarFuncionario() {
+        BuscarFuncionarioPresenter buscarFuncionarioPresenter = new BuscarFuncionarioPresenter(this, funcionarios);
+    }
+
+    private void calcularSalario() {
+        CalcularSalarioPresenter calcularSalarioPresenter = new CalcularSalarioPresenter(this, funcionarios);
+    }
+
+    private void alterarLogs() {
+        SistemaDeLogsPresenter sistemaDeLogsPresenter = new SistemaDeLogsPresenter(this);
+    }
+
+    private void informacoesDoSistema() {
+        updateNumFuncionarios();
+        updateTipoLog();
+        view.getLblNumVersao().setText("1.0-SNAPSHOT");
+        view.getLblTipoPersistencia().setText("none");
 
     }
 
-    private static void addFuncionario() {
-        new ManterFuncionarioPresenter(view, funcionarios);
+    public void updateNumFuncionarios() {
+        view.getLblNumFuncionarios().setText(Integer.toString(funcionarios.getFuncionarios().size()));
     }
 
-    private static void buscarFuncionario() {
-        new BuscarFuncionarioPresenter(view);
+    public void updateTipoLog() {
+        view.getLblTipoLogs().setText("null");
     }
 
-    private static void calcularSalario() {
-        new CalcularSalarioPresenter(view);
+    public PrincipalView getView() {
+        return view;
     }
 
-    private static void alterarLogs() {
-        new SistemaDeLogsPresenter(view);
-    }
-
-    private static void informacoesDoSistema() {
-        String info = "Informações do sistema:\n"
-                + "Versão: x.x\n"
-                + "Persistência de Dados: Serialização\n"
-                + "Número de funcionários cadastrados: x";
-        JOptionPane.showMessageDialog(view, info, "Informações do Sistema", JOptionPane.INFORMATION_MESSAGE);
-    }
 }

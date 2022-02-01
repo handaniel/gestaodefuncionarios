@@ -1,34 +1,47 @@
 package ufes.pss.gestaodefuncionarios.presenter;
 
 import ufes.pss.gestaodefuncionarios.view.CalcularSalarioView;
-import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
+import javax.swing.table.DefaultTableModel;
+import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
+import ufes.pss.gestaodefuncionarios.model.Funcionario;
 
 public class CalcularSalarioPresenter {
 
     private CalcularSalarioView view;
+    private DefaultTableModel tmFuncionarios;
 
-    public CalcularSalarioPresenter(PrincipalView principal) {
+    public CalcularSalarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
         view = new CalcularSalarioView();
-        principal.getDesktop().add(view);
-        view.setVisible(true);
+        principal.getView().getDesktop().add(view);
+
+        tmFuncionarios = new DefaultTableModel(
+                new Object[][]{},
+                new String[]{"Funcionario", "Data", "Salário Base (R$)", "Bônus (R$)", "Salário (R$)"}
+        ) {
+            @Override
+            public boolean isCellEditable(final int row, final int column) {
+                return false;
+            }
+        };
+
+        for (Funcionario f : funcionarios.getFuncionarios()) {
+            
+            tmFuncionarios.addRow(new Object[]{
+                f.getNome(),});
+        }
+
+        view.getTblFuncionarios().setModel(tmFuncionarios);
 
         view.getBtnFechar().addActionListener((ActionEvent ae) -> {
             fechar();
-        });
-
-        view.getBtnBuscarData().addActionListener((ActionEvent ae) -> {
-            buscarData();
         });
 
         view.getBtnCalcular().addActionListener((ActionEvent ae) -> {
             calcular();
         });
 
-        view.getBtnListarTodos().addActionListener((ActionEvent ae) -> {
-            listarTodos();
-        });
-
+        view.setVisible(true);
     }
 
     private void fechar() {
@@ -44,6 +57,8 @@ public class CalcularSalarioPresenter {
     }
 
     private void listarTodos() {
-        System.out.println("Falta implementar");
+        tmFuncionarios.setRowCount(0);
+        view.getTblFuncionarios().setModel(tmFuncionarios);
+
     }
 }

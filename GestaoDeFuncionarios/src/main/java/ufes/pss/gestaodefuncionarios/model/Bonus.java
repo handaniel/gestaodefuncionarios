@@ -1,6 +1,7 @@
 package ufes.pss.gestaodefuncionarios.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Bonus {
 
@@ -11,6 +12,7 @@ public class Bonus {
     public Bonus(String nome, double valor) {
         this.nome = nome;
         this.valor = valor;
+        this.data = null;
     }
 
     public String getNome() {
@@ -27,6 +29,14 @@ public class Bonus {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public void setData(String data) {
+        try {
+            this.data = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao validar data!");
+        }
     }
 
     public double getValor() {

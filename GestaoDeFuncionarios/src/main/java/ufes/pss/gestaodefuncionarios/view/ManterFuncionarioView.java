@@ -390,4 +390,70 @@ ckbFuncionarioDoMes.addActionListener(new java.awt.event.ActionListener() {
         this.cbxFormacao = cbxFormacao;
     }
 
+    /* 
+    "Programador Sênior", "Programador Junior", "Gerente de Projeto",
+    "Analista de sistemas", "Engenheiro de Dados", "Gerente de Segurança"
+    
+    
+     */
+    public static int indexOfCargo(String cargo) {
+        int index;
+        switch (cargo) {
+            case "Programador Sênior":
+                index = 0;
+                break;
+            case "Programador Junior":
+                index = 1;
+                break;
+            case "Gerente de Projeto":
+                index = 2;
+                break;
+            case "Analista de sistemas":
+                index = 3;
+                break;
+            case "Engenheiro de Dados":
+                index = 4;
+                break;
+            case "Gerente de Segurança":
+                index = 5;
+                break;
+            default:
+                index = 0;
+        }
+        return index;
+    }
+
+    public static int indexOfBonus(String bonus) {
+        int index;
+        switch (bonus) {
+            case "Normal":
+                index = 0;
+                break;
+            case "Generoso":
+                index = 1;
+                break;
+            default:
+                index = 0;
+        }
+        return index;
+    }
+
+    public static int indexOfFormacao(String formacao) {
+        int index;
+        switch (formacao) {
+            case "Graduação":
+                index = 0;
+                break;
+            case "Mestrado":
+                index = 1;
+                break;
+            case "Doutorado":
+                index = 2;
+                break;
+            default:
+                index = 0;
+        }
+        return index;
+    }
+
 }
