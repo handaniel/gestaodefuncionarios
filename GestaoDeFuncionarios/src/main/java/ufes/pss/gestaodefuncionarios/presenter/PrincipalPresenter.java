@@ -17,10 +17,6 @@ public class PrincipalPresenter {
 
         inicializa();
 
-        File f = new File("Logs/teste.txt");
-        
-        f.createNewFile();
-
     }
 
     public void inicializa() {
