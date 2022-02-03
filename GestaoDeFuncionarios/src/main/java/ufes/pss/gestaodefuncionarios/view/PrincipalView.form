@@ -26,11 +26,17 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnAddFuncionario">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar Funcion&#xe1;rio"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="btnBuscarFuncionario">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F2"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Funcion&#xe1;rio"/>
               </Properties>
             </MenuItem>
@@ -43,6 +49,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnCalcularSalario">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F3"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Calcular Sal&#xe1;rio"/>
               </Properties>
             </MenuItem>
@@ -55,6 +64,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnAlterarLogs">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F4"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Alterar Mecanismo de Logs"/>
               </Properties>
             </MenuItem>
@@ -66,6 +78,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Sistema de Gest&#xe3;o de Funcion&#xe1;rios"/>
+    <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1600, 900]"/>
     </Property>

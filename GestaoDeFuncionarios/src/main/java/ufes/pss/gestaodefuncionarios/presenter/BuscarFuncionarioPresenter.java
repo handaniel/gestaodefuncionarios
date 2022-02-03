@@ -11,8 +11,8 @@ import ufes.pss.gestaodefuncionarios.model.Funcionario;
 public class BuscarFuncionarioPresenter {
 
     private BuscarFuncionarioView view;
-    private DefaultTableModel tmFuncionarios;
-    private FuncionarioCollection funcionarios;
+    private final DefaultTableModel tmFuncionarios;
+    private final FuncionarioCollection funcionarios;
 
     public BuscarFuncionarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
         this.funcionarios = funcionarios;

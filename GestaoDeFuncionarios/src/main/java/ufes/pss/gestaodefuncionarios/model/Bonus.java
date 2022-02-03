@@ -12,7 +12,6 @@ public class Bonus {
     public Bonus(String nome, double valor) {
         this.nome = nome;
         this.valor = valor;
-        this.data = null;
     }
 
     public String getNome() {

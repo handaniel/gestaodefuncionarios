@@ -2,6 +2,8 @@ package ufes.pss.gestaodefuncionarios.presenter;
 
 import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
 
 public class PrincipalPresenter {
@@ -9,11 +11,15 @@ public class PrincipalPresenter {
     private PrincipalView view;
     private FuncionarioCollection funcionarios;
 
-    public PrincipalPresenter() {
+    public PrincipalPresenter() throws IOException {
 
         funcionarios = new FuncionarioCollection();
 
         inicializa();
+
+        File f = new File("Logs/teste.txt");
+        
+        f.createNewFile();
 
     }
 

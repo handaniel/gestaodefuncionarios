@@ -65,6 +65,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Gestão de Funcionários");
+        setResizable(false);
         setSize(new java.awt.Dimension(1600, 900));
 
         lblFuncionarios.setText("Funcionarios:");
@@ -88,9 +89,11 @@ public class PrincipalView extends javax.swing.JFrame {
 
         mnuFuncionario.setText("Funcionário");
 
+        btnAddFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         btnAddFuncionario.setText("Adicionar Funcionário");
         mnuFuncionario.add(btnAddFuncionario);
 
+        btnBuscarFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         btnBuscarFuncionario.setText("Buscar Funcionário");
         mnuFuncionario.add(btnBuscarFuncionario);
 
@@ -98,6 +101,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         mnuSalario.setText("Salário");
 
+        btnCalcularSalario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         btnCalcularSalario.setText("Calcular Salário");
         mnuSalario.add(btnCalcularSalario);
 
@@ -105,6 +109,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         mnuFerramentas.setText("Ferramentas");
 
+        btnAlterarLogs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         btnAlterarLogs.setText("Alterar Mecanismo de Logs");
         mnuFerramentas.add(btnAlterarLogs);
 

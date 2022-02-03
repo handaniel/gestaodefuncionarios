@@ -4,7 +4,9 @@
  */
 package ufes.pss.gestaodefuncionarios.view;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -21,6 +23,38 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
         gpSistemaLogs.add(rbtXML);
     }
 
+    public JButton getBtnSalvar() {
+        return btnSalvar;
+    }
+
+    public void setBtnSalvar(JButton btnSalvar) {
+        this.btnSalvar = btnSalvar;
+    }
+
+    public ButtonGroup getGpSistemaLogs() {
+        return gpSistemaLogs;
+    }
+
+    public void setGpSistemaLogs(ButtonGroup gpSistemaLogs) {
+        this.gpSistemaLogs = gpSistemaLogs;
+    }
+
+    public JRadioButton getRbtTXT() {
+        return rbtTXT;
+    }
+
+    public void setRbtTXT(JRadioButton rbtTXT) {
+        this.rbtTXT = rbtTXT;
+    }
+
+    public JRadioButton getRbtXML() {
+        return rbtXML;
+    }
+
+    public void setRbtXML(JRadioButton rbtXML) {
+        this.rbtXML = rbtXML;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +67,7 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
         gpSistemaLogs = new javax.swing.ButtonGroup();
         rbtXML = new javax.swing.JRadioButton();
         rbtTXT = new javax.swing.JRadioButton();
+        btnSalvar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Escolha um Sistema de Logs");
@@ -41,25 +76,34 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
 
         rbtTXT.setText("TXT");
 
+        btnSalvar.setText("Salvar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(rbtXML)
-                .addGap(83, 83, 83)
-                .addComponent(rbtTXT)
-                .addGap(64, 64, 64))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(rbtXML)
+                        .addGap(83, 83, 83)
+                        .addComponent(rbtTXT)
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSalvar)
+                        .addGap(113, 113, 113))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtXML)
                     .addComponent(rbtTXT))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(btnSalvar)
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -67,6 +111,7 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup gpSistemaLogs;
     private javax.swing.JRadioButton rbtTXT;
     private javax.swing.JRadioButton rbtXML;

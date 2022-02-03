@@ -396,7 +396,7 @@ ckbFuncionarioDoMes.addActionListener(new java.awt.event.ActionListener() {
     
     
      */
-    public static int indexOfCargo(String cargo) {
+    public int indexOfCargo(String cargo) {
         int index;
         switch (cargo) {
             case "Programador Sênior":
@@ -423,7 +423,7 @@ ckbFuncionarioDoMes.addActionListener(new java.awt.event.ActionListener() {
         return index;
     }
 
-    public static int indexOfBonus(String bonus) {
+    public int indexOfBonus(String bonus) {
         int index;
         switch (bonus) {
             case "Normal":
@@ -438,7 +438,7 @@ ckbFuncionarioDoMes.addActionListener(new java.awt.event.ActionListener() {
         return index;
     }
 
-    public static int indexOfFormacao(String formacao) {
+    public int indexOfFormacao(String formacao) {
         int index;
         switch (formacao) {
             case "Graduação":

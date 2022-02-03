@@ -40,7 +40,6 @@ public class Funcionario implements Serializable, Comparable<Funcionario> {
 
     public void addBonus(Bonus bonusRecebido) {
         bonusRecebidos.add(bonusRecebido);
-        historicoBonus.addBonusHistorico(bonusRecebido, this.getCargo(), this.getSalario());
     }
 
     public LocalDate getAdmissao() {

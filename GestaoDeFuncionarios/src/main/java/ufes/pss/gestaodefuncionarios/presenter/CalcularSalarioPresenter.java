@@ -2,14 +2,19 @@ package ufes.pss.gestaodefuncionarios.presenter;
 
 import ufes.pss.gestaodefuncionarios.view.CalcularSalarioView;
 import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
+import ufes.pss.gestaodefuncionarios.model.BonusHistorico;
 import ufes.pss.gestaodefuncionarios.model.Funcionario;
+import ufes.pss.gestaodefuncionarios.utils.CalculaSalario;
 
 public class CalcularSalarioPresenter {
 
     private CalcularSalarioView view;
-    private DefaultTableModel tmFuncionarios;
+    private final DefaultTableModel tmFuncionarios;
 
     public CalcularSalarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
         view = new CalcularSalarioView();
@@ -17,19 +22,13 @@ public class CalcularSalarioPresenter {
 
         tmFuncionarios = new DefaultTableModel(
                 new Object[][]{},
-                new String[]{"Funcionario", "Data", "Salário Base (R$)", "Bônus (R$)", "Salário (R$)"}
+                new String[]{"ID", "Funcionario", "Data", "Salário Base (R$)", "Bônus (R$)", "Salário (R$)"}
         ) {
             @Override
             public boolean isCellEditable(final int row, final int column) {
                 return false;
             }
         };
-
-        for (Funcionario f : funcionarios.getFuncionarios()) {
-            
-            tmFuncionarios.addRow(new Object[]{
-                f.getNome(),});
-        }
 
         view.getTblFuncionarios().setModel(tmFuncionarios);
 
@@ -38,27 +37,99 @@ public class CalcularSalarioPresenter {
         });
 
         view.getBtnCalcular().addActionListener((ActionEvent ae) -> {
-            calcular();
+            if (!view.getTxtDataCalculo().getText().equals("")) {
+                calcular(view.getTxtDataCalculo().getText(), funcionarios);
+            } else {
+                JOptionPane.showMessageDialog(view, "Insira uma data válida para cálculo!");
+            }
+        });
+
+        view.getBtnNaoCalculados().addActionListener((ActionEvent ae) -> {
+            listarNaoCalculados(funcionarios);
+        });
+
+        view.getBtnBuscar().addActionListener((ActionEvent ae) -> {
+            if (!view.getTxtDataBusca().getText().equals("")) {
+                buscarData(view.getTxtDataBusca().getText(), funcionarios);
+            } else {
+                JOptionPane.showMessageDialog(view, "Insira uma data válida para busca!");
+            }
         });
 
         view.setVisible(true);
+    }
+
+    private void listarNaoCalculados(FuncionarioCollection funcionarios) {
+        clearTable();
+
+        for (Funcionario f : funcionarios.getFuncionarios()) {
+            if (f.getSalario() == f.getSalarioComBonus()) {
+                tmFuncionarios.addRow(new Object[]{
+                    f.getId(),
+                    f.getNome(),
+                    "Não calculado",
+                    String.format("%.2f", f.getSalario()).replace(".", ","),
+                    "Não calculado",
+                    "Não calculado"
+                });
+
+            }
+        }
+
     }
 
     private void fechar() {
         view.dispose();
     }
 
-    private void buscarData() {
-        System.out.println("Falta implementar");
+    private void buscarData(String dataBusca, FuncionarioCollection funcionarios) {
+        clearTable();
+
+        LocalDate dt = LocalDate.parse(dataBusca, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+        for (Funcionario f : funcionarios.getFuncionarios()) {
+            System.out.println(f.getBonusRecebidos().size());
+            for (BonusHistorico b : f.getHistoricoBonus().getHistorico()) {
+                if (b.getData() != null && b.getData().equals(dt)) {
+                    tmFuncionarios.addRow(new Object[]{
+                        f.getId(),
+                        f.getNome(),
+                        b.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        String.format("%.2f", f.getSalario()).replace(".", ","),
+                        String.format("%.2f", (f.getSalarioComBonus() - f.getSalario())).replace(".", ","),
+                        String.format("%.2f", f.getSalarioComBonus()).replace(".", ",")
+                    });
+                    break;
+                }
+            }
+        }
+
     }
 
-    private void calcular() {
-        System.out.println("Falta implementar");
+    /*Calcula os salários com bônus de todos os funcionarios listados na tabela
+    seja eles os não calculados ou os calculados em determinada data 
+     */
+    private void calcular(String dataCalculo, FuncionarioCollection funcionarios) {
+        int row = view.getTblFuncionarios().getRowCount();
+        if (row > 0) {
+            for (int i = 0; i < row; i++) {
+
+                int id = Integer.parseInt(view.getTblFuncionarios().getValueAt(i, 0).toString());
+
+                Funcionario f = funcionarios.findById(id);
+
+                CalculaSalario.CalcularSalario(f, dataCalculo);
+
+                clearTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(view, "Não há funcionários para cálculo!");
+        }
+
     }
 
-    private void listarTodos() {
+    private void clearTable() {
         tmFuncionarios.setRowCount(0);
         view.getTblFuncionarios().setModel(tmFuncionarios);
-
     }
 }

@@ -18,7 +18,7 @@ public class VerBonusPresenter {
 
         tmBonus = new DefaultTableModel(
                 new Object[][]{},
-                new String[]{"Data de Cadastro", "Cargo", "Tipo de Bônus", "Valor"}
+                new String[]{"Data de Cálculo", "Cargo", "Tipo de Bônus", "Valor"}
         ) {
             @Override
             public boolean isCellEditable(final int row, final int column) {
@@ -42,6 +42,7 @@ public class VerBonusPresenter {
 
         for (BonusHistorico bh : f.getHistoricoBonus().getHistorico()) {
             String data;
+
             if (bh.getData() == null) {
                 data = "-";
             } else {

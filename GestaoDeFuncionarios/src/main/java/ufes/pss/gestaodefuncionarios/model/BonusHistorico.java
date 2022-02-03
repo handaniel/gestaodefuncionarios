@@ -1,7 +1,5 @@
 package ufes.pss.gestaodefuncionarios.model;
 
-import java.time.LocalDate;
-
 public class BonusHistorico extends Bonus {
 
     private String cargo;

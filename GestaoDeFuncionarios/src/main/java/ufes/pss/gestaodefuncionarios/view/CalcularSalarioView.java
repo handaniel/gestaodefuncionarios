@@ -7,6 +7,7 @@ package ufes.pss.gestaodefuncionarios.view;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -36,8 +37,11 @@ public class CalcularSalarioView extends javax.swing.JInternalFrame {
         tblFuncionarios = new javax.swing.JTable();
         btnCalcular = new javax.swing.JButton();
         btnFechar = new javax.swing.JButton();
-        ckbDataSelecionada = new javax.swing.JCheckBox();
-        txtData = new javax.swing.JFormattedTextField();
+        txtDataCalculo = new javax.swing.JFormattedTextField();
+        btnNaoCalculados = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        txtDataBusca = new javax.swing.JFormattedTextField();
+        lblDataCalculo = new javax.swing.JLabel();
 
         setTitle("Calcular Salário");
 
@@ -58,9 +62,15 @@ public class CalcularSalarioView extends javax.swing.JInternalFrame {
 
         btnFechar.setText("Fechar");
 
-        ckbDataSelecionada.setText("Mostrar já calculador na data selecionada");
+        txtDataCalculo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
-        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        btnNaoCalculados.setText("Listar não calculados");
+
+        btnBuscar.setText("Buscar por Data");
+
+        txtDataBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+
+        lblDataCalculo.setText("Data do Cálculo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,35 +78,53 @@ public class CalcularSalarioView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ckbDataSelecionada)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnFechar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnCalcular))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtDataBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNaoCalculados))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnFechar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDataCalculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDataCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCalcular))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ckbDataSelecionada)
-                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNaoCalculados)
+                    .addComponent(btnBuscar)
+                    .addComponent(txtDataBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCalcular)
                     .addComponent(btnFechar)
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataCalculo))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
 
     public JButton getBtnCalcular() {
         return btnCalcular;
@@ -114,12 +142,12 @@ public class CalcularSalarioView extends javax.swing.JInternalFrame {
         this.btnFechar = btnFechar;
     }
 
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
+    public JButton getBtnNaoCalculados() {
+        return btnNaoCalculados;
     }
 
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
+    public void setBtnNaoCalculados(JButton btnNaoCalculados) {
+        this.btnNaoCalculados = btnNaoCalculados;
     }
 
     public JTable getTblFuncionarios() {
@@ -130,29 +158,42 @@ public class CalcularSalarioView extends javax.swing.JInternalFrame {
         this.tblFuncionarios = tblFuncionarios;
     }
 
-    public JCheckBox getCkbDataSelecionada() {
-        return ckbDataSelecionada;
+    public JFormattedTextField getTxtDataBusca() {
+        return txtDataBusca;
     }
 
-    public void setCkbDataSelecionada(JCheckBox ckbDataSelecionada) {
-        this.ckbDataSelecionada = ckbDataSelecionada;
+    public void setTxtDataBusca(JFormattedTextField txtDataBusca) {
+        this.txtDataBusca = txtDataBusca;
     }
 
-    public JFormattedTextField getTxtData() {
-        return txtData;
+    public JFormattedTextField getTxtDataCalculo() {
+        return txtDataCalculo;
     }
 
-    public void setTxtData(JFormattedTextField txtData) {
-        this.txtData = txtData;
+    public void setTxtDataCalculo(JFormattedTextField txtDataCalculo) {
+        this.txtDataCalculo = txtDataCalculo;
     }
+
+    public JLabel getLblDataCalculo() {
+        return lblDataCalculo;
+    }
+
+    public void setLblDataCalculo(JLabel lblDataCalculo) {
+        this.lblDataCalculo = lblDataCalculo;
+    }
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnFechar;
-    private javax.swing.JCheckBox ckbDataSelecionada;
+    private javax.swing.JButton btnNaoCalculados;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblDataCalculo;
     private javax.swing.JTable tblFuncionarios;
-    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JFormattedTextField txtDataBusca;
+    private javax.swing.JFormattedTextField txtDataCalculo;
     // End of variables declaration//GEN-END:variables
 }

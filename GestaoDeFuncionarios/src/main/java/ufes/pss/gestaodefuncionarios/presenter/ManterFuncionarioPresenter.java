@@ -4,7 +4,6 @@ import ufes.pss.gestaodefuncionarios.view.ManterFuncionarioView;
 import java.awt.event.ActionEvent;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
 import ufes.pss.gestaodefuncionarios.model.Bonus;
 import ufes.pss.gestaodefuncionarios.model.Funcionario;
@@ -12,8 +11,8 @@ import ufes.pss.gestaodefuncionarios.utils.AddBonusRecebidosCadastro;
 
 public class ManterFuncionarioPresenter {
 
-    private ManterFuncionarioView view;
-    private FuncionarioCollection funcionarios;
+    private final ManterFuncionarioView view;
+    private final FuncionarioCollection funcionarios;
 
     public ManterFuncionarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
         this.funcionarios = funcionarios;
