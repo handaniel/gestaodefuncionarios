@@ -3,13 +3,17 @@
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/view/PrincipalView.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/view/VerBonusView.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/model/Bonus.java
+/home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/Logger/JSONLogger.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/model/Funcionario.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/presenter/SistemaDeLogsPresenter.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/presenter/PrincipalPresenter.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/view/BuscarFuncionarioView.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/view/CalcularSalarioView.java
+/home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/factory/SistemaDeLogs.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/view/ManterFuncionarioView.java
+/home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/Logger/AbstractLogger.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/utils/CalculaSalario.java
+/home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/Logger/TXTLogger.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/presenter/CalcularSalarioPresenter.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/presenter/BuscarFuncionarioPresenter.java
 /home/handaniels/Documentos/UFES/Projeto-de-Sistemas-de-Software/GestaoDeFuncionarios/GestaoDeFuncionarios/src/main/java/ufes/pss/gestaodefuncionarios/Principal.java

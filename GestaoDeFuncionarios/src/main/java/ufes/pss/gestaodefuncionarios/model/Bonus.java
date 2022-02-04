@@ -18,7 +18,7 @@ public class Bonus {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws RuntimeException {
         if (!nome.equals("") && nome != null) {
             this.nome = nome;
         } else {
@@ -34,7 +34,7 @@ public class Bonus {
         this.data = data;
     }
 
-    public void setData(String data) {
+    public void setData(String data) throws RuntimeException {
         try {
             this.data = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         } catch (Exception e) {

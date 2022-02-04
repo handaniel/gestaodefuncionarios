@@ -1,0 +1,9 @@
+04-02-2022 12:08:39 Funcionário: Daniel [Adicionado].
+04-02-2022 12:08:50 Funcionário: Cleiton [Adicionado].
+04-02-2022 12:09:02 Funcionário: Mario [Adicionado].
+04-02-2022 12:09:09 Salário claculado para o(s) funcionário(s): [
+Daniel
+Cleiton
+Mario
+]
+04-02-2022 13:19:14 Funcionário: Daniel [Adicionado].

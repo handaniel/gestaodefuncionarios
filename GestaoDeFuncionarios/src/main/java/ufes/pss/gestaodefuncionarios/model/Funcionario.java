@@ -50,7 +50,7 @@ public class Funcionario implements Serializable, Comparable<Funcionario> {
         this.admissao = admissao;
     }
 
-    public void setAdmissao(String admissao) {
+    public void setAdmissao(String admissao) throws RuntimeException {
         try {
             this.admissao = LocalDate.parse(admissao, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         } catch (Exception e) {

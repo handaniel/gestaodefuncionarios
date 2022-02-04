@@ -4,15 +4,18 @@ import ufes.pss.gestaodefuncionarios.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
+import ufes.pss.gestaodefuncionarios.factory.SistemaDeLogs;
 
 public class PrincipalPresenter {
 
     private PrincipalView view;
     private final FuncionarioCollection funcionarios;
+    private final SistemaDeLogs logs;
 
     public PrincipalPresenter() throws IOException {
 
         funcionarios = new FuncionarioCollection();
+        logs = new SistemaDeLogs("JSON");
 
         inicializa();
 
@@ -43,19 +46,19 @@ public class PrincipalPresenter {
     }
 
     private void addFuncionario() {
-        ManterFuncionarioPresenter manterFuncionarioPresenter = new ManterFuncionarioPresenter(this, funcionarios);
+        ManterFuncionarioPresenter manterFuncionarioPresenter = new ManterFuncionarioPresenter(this, funcionarios, logs);
     }
 
     private void buscarFuncionario() {
-        BuscarFuncionarioPresenter buscarFuncionarioPresenter = new BuscarFuncionarioPresenter(this, funcionarios);
+        BuscarFuncionarioPresenter buscarFuncionarioPresenter = new BuscarFuncionarioPresenter(this, funcionarios, logs);
     }
 
     private void calcularSalario() {
-        CalcularSalarioPresenter calcularSalarioPresenter = new CalcularSalarioPresenter(this, funcionarios);
+        CalcularSalarioPresenter calcularSalarioPresenter = new CalcularSalarioPresenter(this, funcionarios, logs);
     }
 
     private void alterarLogs() {
-        SistemaDeLogsPresenter sistemaDeLogsPresenter = new SistemaDeLogsPresenter(this);
+        SistemaDeLogsPresenter sistemaDeLogsPresenter = new SistemaDeLogsPresenter(this, logs);
     }
 
     private void informacoesDoSistema() {
@@ -71,7 +74,7 @@ public class PrincipalPresenter {
     }
 
     public void updateTipoLog() {
-        view.getLblTipoLogs().setText("null");
+        view.getLblTipoLogs().setText(logs.getTipo().toUpperCase());
     }
 
     public PrincipalView getView() {

@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
+import ufes.pss.gestaodefuncionarios.factory.SistemaDeLogs;
 import ufes.pss.gestaodefuncionarios.model.Funcionario;
 
 public class BuscarFuncionarioPresenter {
@@ -13,9 +14,11 @@ public class BuscarFuncionarioPresenter {
     private BuscarFuncionarioView view;
     private final DefaultTableModel tmFuncionarios;
     private final FuncionarioCollection funcionarios;
+    private SistemaDeLogs logs;
 
-    public BuscarFuncionarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
+    public BuscarFuncionarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios, SistemaDeLogs logs) {
         this.funcionarios = funcionarios;
+        this.logs = logs;
         funcionarios.ordenar();
         view = new BuscarFuncionarioView();
         principal.getView().getDesktop().add(view);
@@ -90,14 +93,16 @@ public class BuscarFuncionarioPresenter {
                 }
             }
         } else {
-            throw new RuntimeException("Forneça um nome para busca!");
+            String msg = "Forneça um nome para busca!";
+            logs.getLogger().logFalha("Busca", msg);
+            throw new RuntimeException(msg);
         }
 
         view.getTblFuncionarios().setModel(tmFuncionarios);
     }
 
     private void novo(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
-        ManterFuncionarioPresenter manterFuncionarioPresenter = new ManterFuncionarioPresenter(principal, funcionarios);
+        ManterFuncionarioPresenter manterFuncionarioPresenter = new ManterFuncionarioPresenter(principal, funcionarios, logs);
         eraseTable();
     }
 
@@ -105,7 +110,7 @@ public class BuscarFuncionarioPresenter {
         int id = Integer.parseInt(view.getTblFuncionarios().getValueAt(view.getTblFuncionarios().getSelectedRow(), 0).toString());
         Funcionario f = funcionarios.findById(id);
 
-        new VerBonusPresenter(principal, f);
+        new VerBonusPresenter(principal, f, logs);
         eraseTable();
         view.getTxtBusca().setText("");
     }
@@ -113,7 +118,7 @@ public class BuscarFuncionarioPresenter {
     private void visualizar(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
         int id = Integer.parseInt(view.getTblFuncionarios().getValueAt(view.getTblFuncionarios().getSelectedRow(), 0).toString());
         Funcionario f = funcionarios.findById(id);
-        new ManterFuncionarioPresenter(principal, funcionarios, f);
+        new ManterFuncionarioPresenter(principal, funcionarios, f, logs);
         eraseTable();
         view.getTxtBusca().setText("");
     }

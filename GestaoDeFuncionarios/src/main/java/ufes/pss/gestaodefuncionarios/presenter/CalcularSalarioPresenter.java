@@ -4,9 +4,11 @@ import ufes.pss.gestaodefuncionarios.view.CalcularSalarioView;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ufes.pss.gestaodefuncionarios.collection.FuncionarioCollection;
+import ufes.pss.gestaodefuncionarios.factory.SistemaDeLogs;
 import ufes.pss.gestaodefuncionarios.model.BonusHistorico;
 import ufes.pss.gestaodefuncionarios.model.Funcionario;
 import ufes.pss.gestaodefuncionarios.utils.CalculaSalario;
@@ -15,10 +17,12 @@ public class CalcularSalarioPresenter {
 
     private CalcularSalarioView view;
     private final DefaultTableModel tmFuncionarios;
+    private SistemaDeLogs logs;
 
-    public CalcularSalarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios) {
+    public CalcularSalarioPresenter(PrincipalPresenter principal, FuncionarioCollection funcionarios, SistemaDeLogs logs) {
         view = new CalcularSalarioView();
         principal.getView().getDesktop().add(view);
+        this.logs = logs;
 
         tmFuncionarios = new DefaultTableModel(
                 new Object[][]{},
@@ -112,18 +116,24 @@ public class CalcularSalarioPresenter {
     private void calcular(String dataCalculo, FuncionarioCollection funcionarios) {
         int row = view.getTblFuncionarios().getRowCount();
         if (row > 0) {
+            ArrayList<String> nomes = new ArrayList<>();
             for (int i = 0; i < row; i++) {
 
                 int id = Integer.parseInt(view.getTblFuncionarios().getValueAt(i, 0).toString());
 
                 Funcionario f = funcionarios.findById(id);
 
+                nomes.add(f.getNome());
+
                 CalculaSalario.CalcularSalario(f, dataCalculo);
 
-                clearTable();
             }
+            logs.getLogger().logCalculaSalario(nomes);
+            clearTable();
         } else {
-            JOptionPane.showMessageDialog(view, "Não há funcionários para cálculo!");
+            String msg = "Nenhum funcionário para calcular!";
+            logs.getLogger().logFalha("Cálculo de Salário", msg);
+            throw new RuntimeException(msg);
         }
 
     }

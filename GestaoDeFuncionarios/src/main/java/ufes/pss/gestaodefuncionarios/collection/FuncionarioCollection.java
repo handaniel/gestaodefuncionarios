@@ -13,7 +13,7 @@ public class FuncionarioCollection {
         funcionarios = new ArrayList<>();
     }
 
-    public void addFuncionario(Funcionario funcionario) {
+    public void addFuncionario(Funcionario funcionario) throws RuntimeException {
         if (funcionarios.contains(funcionario)) {
             throw new RuntimeException("Funcionário já cadastrado!");
         } else if (funcionario != null) {
@@ -23,7 +23,7 @@ public class FuncionarioCollection {
         }
     }
 
-    public void atualizarFuncionario(Funcionario antigo, Funcionario novo) {
+    public void atualizarFuncionario(Funcionario antigo, Funcionario novo) throws RuntimeException {
         if (funcionarios.contains(novo)) {
             throw new RuntimeException("Funcionário já cadastrado");
         } else if (novo != null) {
@@ -40,7 +40,7 @@ public class FuncionarioCollection {
     }
 
     public void atualizarFuncionarioById(int id, String nome, int idade, double salario, String cargo, int numFaltas, LocalDate admissao,
-            boolean funcionarioDoMes, String formacao) {
+            boolean funcionarioDoMes, String formacao) throws RuntimeException {
         Funcionario f = this.findById(id);
         if (f != null) {
             f.setNome(nome);

@@ -3,19 +3,24 @@ package ufes.pss.gestaodefuncionarios.presenter;
 import java.awt.event.ActionEvent;
 import java.time.format.DateTimeFormatter;
 import javax.swing.table.DefaultTableModel;
+import ufes.pss.gestaodefuncionarios.factory.SistemaDeLogs;
 import ufes.pss.gestaodefuncionarios.model.BonusHistorico;
 import ufes.pss.gestaodefuncionarios.model.Funcionario;
 import ufes.pss.gestaodefuncionarios.view.VerBonusView;
 
 public class VerBonusPresenter {
-
+    
     private VerBonusView view;
     private DefaultTableModel tmBonus;
-
-    public VerBonusPresenter(PrincipalPresenter principal, Funcionario funcionario) {
+    private SistemaDeLogs logs;
+    
+    public VerBonusPresenter(PrincipalPresenter principal, Funcionario funcionario, SistemaDeLogs logs) {
         this.view = new VerBonusView();
         principal.getView().getDesktop().add(view);
-
+        this.logs = logs;
+        
+        logs.getLogger().logConsultaBonus(funcionario.getNome());
+        
         tmBonus = new DefaultTableModel(
                 new Object[][]{},
                 new String[]{"Data de Cálculo", "Cargo", "Tipo de Bônus", "Valor"}
@@ -27,22 +32,22 @@ public class VerBonusPresenter {
         };
         this.view.getTblBonus().setModel(tmBonus);
         preenche(funcionario);
-
+        
         view.getBtnFechar().addActionListener((ActionEvent ae) -> {
             fechar();
         });
-
+        
         this.view.setVisible(true);
     }
-
+    
     private void preenche(Funcionario f) {
-
+        
         view.getLblNome().setText(f.getNome());
         view.getLblCargo().setText(f.getCargo());
-
+        
         for (BonusHistorico bh : f.getHistoricoBonus().getHistorico()) {
             String data;
-
+            
             if (bh.getData() == null) {
                 data = "-";
             } else {
@@ -56,9 +61,9 @@ public class VerBonusPresenter {
             });
         }
     }
-
+    
     private void fechar() {
         view.dispose();
     }
-
+    
 }
