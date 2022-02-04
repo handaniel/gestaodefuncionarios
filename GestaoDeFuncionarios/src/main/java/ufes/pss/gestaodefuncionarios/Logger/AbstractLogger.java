@@ -18,8 +18,6 @@ public abstract class AbstractLogger {
         this.fileName = fileName;
     }
 
-    public abstract void mudarSistema();
-
     public abstract void logCRUDFuncionario(String nome, String operacao);
 
     public abstract void logConsultaBonus(String nome);

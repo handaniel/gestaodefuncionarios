@@ -2,9 +2,6 @@ package ufes.pss.gestaodefuncionarios.Logger;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -85,18 +82,6 @@ public class JSONLogger extends AbstractLogger {
             writer.close();
         } catch (IOException e) {
             throw new RuntimeException("Erro ao criar log!");
-        }
-    }
-
-    @Override
-    public void mudarSistema() {
-        try {
-            Files.write(Paths.get(this.getFileName()),
-                    ("\n ======== Mudança para Persistência de Logs em JSON em " + DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss").format(LocalDateTime.now())
-                            + " ========\n").getBytes(),
-                    StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            throw new RuntimeException("Erro ao alterar arquivo;");
         }
     }
 

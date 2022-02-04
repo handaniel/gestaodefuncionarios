@@ -81,16 +81,4 @@ public class TXTLogger extends AbstractLogger {
         }
     }
 
-    @Override
-    public void mudarSistema() {
-        try {
-            Files.write(Paths.get(this.getFileName()),
-                    ("\n ======== Mudança para Persistência de Logs em TXT em " + DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss").format(LocalDateTime.now())
-                            + " ========\n").getBytes(),
-                    StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            throw new RuntimeException("Erro ao alterar arquivo;");
-        }
-    }
-
 }
