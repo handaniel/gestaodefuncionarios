@@ -22,7 +22,7 @@ public class TXTLogger extends AbstractLogger {
                 file.createNewFile();
             }
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao criar arquivo");
+            throw new RuntimeException(e.getMessage());
         }
 
     }

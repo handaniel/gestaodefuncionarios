@@ -92,7 +92,6 @@ public class CalcularSalarioPresenter {
         LocalDate dt = LocalDate.parse(dataBusca, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         for (Funcionario f : funcionarios.getFuncionarios()) {
-            System.out.println(f.getBonusRecebidos().size());
             for (BonusHistorico b : f.getHistoricoBonus().getHistorico()) {
                 if (b.getData() != null && b.getData().equals(dt)) {
                     tmFuncionarios.addRow(new Object[]{

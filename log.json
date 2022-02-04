@@ -1,0 +1,15 @@
+{"Horário ":"04-02-2022 15:45:40","Operação":"Adicionado","Funcionário":"Daniel"}
+{"Horário ":"04-02-2022 15:45:49","Operação":"Visualizado","Funcionário":"Daniel"}
+{"Horário ":"04-02-2022 15:45:52","Operação":"Excluido","Funcionário":"Daniel"}
+{"Horário ":"04-02-2022 15:46:07","Operação":"Adicionado","Funcionário":"Cleiton"}
+{"Horário ":"04-02-2022 15:46:09","Exceção":"Forneça um nome para busca!","Falha na operação":"Busca"}
+{"Horário ":"04-02-2022 15:46:21","Salário calculado de ":"Cleiton"}
+{"Bônus Visto de":"Cleiton","Horário ":"04-02-2022 15:46:26"}
+{"Horário ":"04-02-2022 15:46:28","Exceção":"Forneça um nome para busca!","Falha na operação":"Busca"}
+{"Horário ":"04-02-2022 15:46:32","Operação":"Visualizado","Funcionário":"Cleiton"}
+{"Horário ":"04-02-2022 15:46:38","Operação":"Editado","Funcionário":"Cleiton"}
+{"Horário ":"04-02-2022 15:46:56","Salário calculado de ":"Cleiton"}
+{"Bônus Visto de":"Cleiton","Horário ":"04-02-2022 15:47:04"}
+{"Horário ":"04-02-2022 15:47:06","Exceção":"Forneça um nome para busca!","Falha na operação":"Busca"}
+{"Horário ":"04-02-2022 15:47:10","Operação":"Visualizado","Funcionário":"Cleiton"}
+{"Horário ":"04-02-2022 15:47:10","Operação":"Excluido","Funcionário":"Cleiton"}

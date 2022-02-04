@@ -1,5 +1,7 @@
 package ufes.pss.gestaodefuncionarios.factory;
 
+import java.io.File;
+
 import ufes.pss.gestaodefuncionarios.Logger.AbstractLogger;
 import ufes.pss.gestaodefuncionarios.Logger.JSONLogger;
 import ufes.pss.gestaodefuncionarios.Logger.TXTLogger;
@@ -12,8 +14,8 @@ public class SistemaDeLogs {
 
     public SistemaDeLogs(String tipo) {
         setTipo(tipo);
-        this.loggerTXT = new TXTLogger("Logs/log.txt");
-        this.loggerJSON = new JSONLogger("Logs/log.json");
+        this.loggerTXT = new TXTLogger("log.txt");
+        this.loggerJSON = new JSONLogger("log.json");
     }
 
     public void setTipo(String tipo) {
