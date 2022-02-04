@@ -20,7 +20,7 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
     public SistemaDeLogsView() {
         initComponents();
         gpSistemaLogs.add(rbtTXT);
-        gpSistemaLogs.add(rbtXML);
+        gpSistemaLogs.add(rbtJSON);
     }
 
     public JButton getBtnSalvar() {
@@ -47,12 +47,12 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
         this.rbtTXT = rbtTXT;
     }
 
-    public JRadioButton getRbtXML() {
-        return rbtXML;
+    public JRadioButton getRbtJSON() {
+        return rbtJSON;
     }
 
-    public void setRbtXML(JRadioButton rbtXML) {
-        this.rbtXML = rbtXML;
+    public void setRbtJSON(JRadioButton rbtJSON) {
+        this.rbtJSON = rbtJSON;
     }
 
     /**
@@ -65,14 +65,13 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         gpSistemaLogs = new javax.swing.ButtonGroup();
-        rbtXML = new javax.swing.JRadioButton();
+        rbtJSON = new javax.swing.JRadioButton();
         rbtTXT = new javax.swing.JRadioButton();
         btnSalvar = new javax.swing.JButton();
 
-        setClosable(true);
         setTitle("Escolha um Sistema de Logs");
 
-        rbtXML.setText("XML");
+        rbtJSON.setText("JSON");
 
         rbtTXT.setText("TXT");
 
@@ -83,10 +82,10 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rbtXML)
+                        .addComponent(rbtJSON)
                         .addGap(83, 83, 83)
                         .addComponent(rbtTXT)
                         .addGap(64, 64, 64))
@@ -99,7 +98,7 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtXML)
+                    .addComponent(rbtJSON)
                     .addComponent(rbtTXT))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
@@ -113,7 +112,7 @@ public class SistemaDeLogsView extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup gpSistemaLogs;
+    private javax.swing.JRadioButton rbtJSON;
     private javax.swing.JRadioButton rbtTXT;
-    private javax.swing.JRadioButton rbtXML;
     // End of variables declaration//GEN-END:variables
 }

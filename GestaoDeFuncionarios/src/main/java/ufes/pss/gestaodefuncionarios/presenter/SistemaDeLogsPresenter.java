@@ -1,7 +1,7 @@
 package ufes.pss.gestaodefuncionarios.presenter;
 
-import ufes.pss.gestaodefuncionarios.view.SistemaDeLogsView;
 import java.awt.event.ActionEvent;
+import ufes.pss.gestaodefuncionarios.view.SistemaDeLogsView;
 
 public class SistemaDeLogsPresenter {
 
@@ -11,17 +11,27 @@ public class SistemaDeLogsPresenter {
         view = new SistemaDeLogsView();
         principal.getView().getDesktop().add(view);
 
+        view.getRbtTXT().setSelected(true);
+
+        view.getBtnSalvar().addActionListener((ActionEvent ae) -> {
+            if (view.getRbtTXT().isSelected()) {
+                setTXT();
+            } else if (view.getRbtJSON().isSelected()) {
+                setJSON();
+            }
+        });
+
         view.setVisible(true);
     }
 
-    private void setXML() {
-        System.out.println("Falta implementar");
+    private void setJSON() {
+        System.out.println("Seta o sistema de logs para JSON");
 
         view.dispose();
     }
 
     private void setTXT() {
-        System.out.println("Falta implementar");
+        System.out.println("Seta o sistema de logs para TXT");
 
         view.dispose();
     }

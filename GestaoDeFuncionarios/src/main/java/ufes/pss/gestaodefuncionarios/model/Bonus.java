@@ -19,7 +19,11 @@ public class Bonus {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("") && nome != null) {
+            this.nome = nome;
+        } else {
+            throw new RuntimeException("Erro ao setar nome de Bonus");
+        }
     }
 
     public LocalDate getData() {

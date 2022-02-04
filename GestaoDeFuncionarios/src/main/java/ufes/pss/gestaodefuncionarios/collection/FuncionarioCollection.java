@@ -1,5 +1,6 @@
 package ufes.pss.gestaodefuncionarios.collection;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import ufes.pss.gestaodefuncionarios.model.Funcionario;
@@ -35,6 +36,23 @@ public class FuncionarioCollection {
                     f.setBonusRecebidos(novo.getBonusRecebidos());
                 }
             }
+        }
+    }
+
+    public void atualizarFuncionarioById(int id, String nome, int idade, double salario, String cargo, int numFaltas, LocalDate admissao,
+            boolean funcionarioDoMes, String formacao) {
+        Funcionario f = this.findById(id);
+        if (f != null) {
+            f.setNome(nome);
+            f.setIdade(idade);
+            f.setSalario(salario);
+            f.setCargo(cargo);
+            f.setNumFaltas(numFaltas);
+            f.setAdmissao(admissao);
+            f.setFuncionarioDoMes(funcionarioDoMes);
+            f.setFormacao(formacao);
+        } else {
+            throw new RuntimeException("Erro ao atualizar funcionário");
         }
     }
 
