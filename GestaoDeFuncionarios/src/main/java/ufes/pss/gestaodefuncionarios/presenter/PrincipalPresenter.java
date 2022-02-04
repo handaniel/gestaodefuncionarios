@@ -15,7 +15,9 @@ public class PrincipalPresenter {
     public PrincipalPresenter() throws IOException {
 
         funcionarios = new FuncionarioCollection();
-        logs = new SistemaDeLogs("JSON");
+        //Por falta de persistência de dados, o sistema de persistência de logs Padrão é TXT
+        //porém a mudança do sistema funciona quando o mesmo está em execução
+        logs = new SistemaDeLogs("TXT");
 
         inicializa();
 

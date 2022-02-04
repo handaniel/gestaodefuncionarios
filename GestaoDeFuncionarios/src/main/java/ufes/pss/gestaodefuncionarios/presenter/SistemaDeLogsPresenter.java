@@ -33,13 +33,13 @@ public class SistemaDeLogsPresenter {
     }
 
     private void setJSON(PrincipalPresenter p, SistemaDeLogs logs) {
-        logs = new SistemaDeLogs("JSON");
+        logs.setTipo("JSON");
         p.updateTipoLog();
         view.dispose();
     }
 
     private void setTXT(PrincipalPresenter p, SistemaDeLogs logs) {
-        logs = new SistemaDeLogs("TXT");
+        logs.setTipo("TXT");
         p.updateTipoLog();
         view.dispose();
     }

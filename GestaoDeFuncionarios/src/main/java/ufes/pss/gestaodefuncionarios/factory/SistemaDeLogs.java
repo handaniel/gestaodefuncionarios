@@ -6,28 +6,29 @@ import ufes.pss.gestaodefuncionarios.Logger.TXTLogger;
 
 public class SistemaDeLogs {
 
-    private AbstractLogger logger;
+    private TXTLogger loggerTXT;
+    private JSONLogger loggerJSON;
     private String tipo;
 
     public SistemaDeLogs(String tipo) {
         setTipo(tipo);
+        this.loggerTXT = new TXTLogger("Logs/log.txt");
+        this.loggerJSON = new JSONLogger("Logs/log.json");
     }
 
-    private void setTipo(String tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
-        if (tipo.toLowerCase().equals("txt")) {
-            this.logger = new TXTLogger("Logs/log.txt");
-        } else if (tipo.toLowerCase().equals("json")) {
-            this.logger = new JSONLogger("Logs/log.json");
-        }
+
     }
 
     public AbstractLogger getLogger() {
-        return logger;
-    }
-
-    public void setLogger(AbstractLogger logger) {
-        this.logger = logger;
+        if (this.getTipo().equalsIgnoreCase("txt")) {
+            return this.loggerTXT;
+        }
+        if (this.getTipo().equalsIgnoreCase("json")) {
+            return this.loggerJSON;
+        }
+        return null;
     }
 
     public String getTipo() {
